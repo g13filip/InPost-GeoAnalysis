@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 import pandas as pd
-import geopandas as gpd
+# geopandas importowane leniwie w save_parquet — nie jest potrzebne w trybie view-only
 
 from paczkomatoza.config import DATA_ROOT
 from paczkomatoza.io.paths import (
@@ -68,6 +68,8 @@ def available_cities(known_cities: dict[str, str] | None = None) -> list[str]:
 # ── zapisywanie ───────────────────────────────────────────────────────────────
 
 def save_parquet(df: pd.DataFrame, path: Path, metadata: dict | None = None) -> None:
+    import geopandas as gpd  # lazy — tylko w pipeline, nie przy starcie Streamlit Cloud
+
     path.parent.mkdir(parents=True, exist_ok=True)
 
     if isinstance(df, gpd.GeoDataFrame):

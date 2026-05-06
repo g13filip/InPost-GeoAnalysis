@@ -1,8 +1,15 @@
+from __future__ import annotations
 from datetime import datetime, timezone
-from paczkomatoza.io.paths import hex_metrics_with_pop_path
-import geopandas as gpd
+from typing import TYPE_CHECKING
 
-def create_pop_metadata(city_slug: str, df: gpd.GeoDataFrame) -> dict:
+import pandas as pd
+
+from paczkomatoza.io.paths import hex_metrics_with_pop_path
+
+if TYPE_CHECKING:
+    import geopandas as gpd  # tylko dla type checkerów, nie importowane w runtime
+
+def create_pop_metadata(city_slug: str, df: pd.DataFrame) -> dict:
     """Tworzy metadata dla siatki populacji: bbox, crs, n_rows, n_cols."""
 
     total_pop = df['population'].sum()
