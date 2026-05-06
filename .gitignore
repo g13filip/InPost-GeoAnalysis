@@ -5,6 +5,9 @@ data/processed/
 data/models/
 *.gpkg
 
+# Wpuść snapshoty lokalizacji paczkomatów (~0.8 MB) — potrzebne do mapy punktów
+!data/raw/inpost/*.parquet
+
 # Blokuj surowe parquet — wpuść tylko gotowe pliki analityczne (~4-5 MB łącznie)
 data/**/*.parquet
 !data/analytics/cities/*/hex_metrics_res9_full.parquet
