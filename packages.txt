@@ -1,0 +1,4 @@
+# Systemowe zależności C/C++ wymagane przez Shapely i H3
+# Streamlit Cloud i HF Spaces (Debian-based) instalują te paczki przez apt-get
+libgeos-dev
+libgeos-c1v5

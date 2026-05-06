@@ -1,0 +1,44 @@
+# ── dane surowe i pośrednie — ZA DUŻE na GitHub ──────────────────────────────
+data/raw/
+data/external/
+data/processed/
+data/models/
+*.gpkg
+
+# Blokuj surowe parquet — wpuść tylko gotowe pliki analityczne (~4-5 MB łącznie)
+data/**/*.parquet
+!data/analytics/cities/*/hex_metrics_res9_full.parquet
+!data/analytics/cities/*/ml_recommendations.parquet
+
+# Meta pliki sidecar — zbędne na cloudzie
+data/**/*.meta.json
+
+# ── sekrety ────────────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ── Python ─────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.eggs/
+
+# ── Jupyter ────────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── środowisko ─────────────────────────────────────────────────────────────────
+.env
+.python-version
+
+# ── IDE ────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.code-workspace
+
+notebooks/
+start.ipynb
+cache/
