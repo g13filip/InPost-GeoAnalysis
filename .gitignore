@@ -1,21 +1,16 @@
-# ── dane — blokuj większość, wpuść tylko potrzebne ───────────────────────────
-# WAŻNE: data/raw/ celowo NIE jest wykluczone jako katalog,
-# żeby negacja !data/raw/inpost/*.parquet mogła zadziałać.
+
 data/external/
 data/processed/
 data/models/
 *.gpkg
 
-# Blokuj wszystkie parquet, potem wpuść wybrane (~5 MB łącznie)
 data/**/*.parquet
 !data/analytics/cities/*/hex_metrics_res9_full.parquet
 !data/analytics/cities/*/ml_recommendations.parquet
 !data/raw/inpost/*.parquet
 
-# Meta pliki sidecar wszędzie w data/
 data/**/*.meta.json
 
-# Meta pliki sidecar — zbędne na cloudzie
 data/**/*.meta.json
 
 # ── sekrety ────────────────────────────────────────────────────────────────────
@@ -45,5 +40,6 @@ build/
 *.code-workspace
 
 notebooks/
+!notebooks/11_ml_residual_model.ipynb
 start.ipynb
 cache/
